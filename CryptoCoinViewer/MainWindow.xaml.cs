@@ -9,6 +9,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CryptoCoinViewer.ViewModels;
+using CryptoCoinViewer.Views;
+using Wpf.Ui;
 using Wpf.Ui.Controls;
 
 namespace CryptoCoinViewer;
@@ -18,9 +20,12 @@ namespace CryptoCoinViewer;
 /// </summary>
 public partial class MainWindow : FluentWindow
 {
-    public MainWindow(MainWindowViewModel viewModel)
+    public MainWindow(MainWindowViewModel viewModel, INavigationService navigationService)
     {
         InitializeComponent();
         DataContext = viewModel;
+        navigationService.SetNavigationControl(NavigationView);
+
+        Loaded += (_, _) => navigationService.Navigate(typeof(HomeView));
     }
 }

@@ -4,8 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CryptoCoinViewer"
+        xmlns:viewmodels="clr-namespace:CryptoCoinViewer.ViewModels"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         mc:Ignorable="d"
-        Title="CryptoCoinViewer" Height="450" Width="800">
-    <ui:TitleBar Title="CryptoCoinViewer" />
+        Title="CryptoCoinViewer" Height="450" Width="800"
+        d:DataContext="{d:DesignInstance viewmodels:MainWindowViewModel, IsDesignTimeCreatable=true}">
+        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+                
+        <ui:TitleBar Title="CryptoCoinViewer"/>
+        <ui:NavigationView Name="NavigationView"
+            Grid.Row="1" MenuItemsSource="{Binding NavigationItems}"/>
+    </Grid>
+    
 </ui:FluentWindow>
