@@ -15,15 +15,7 @@
             <RowDefinition Height="10" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="5" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <ui:TextBox Height="30" />
-            <ui:Button Grid.Column="2"  Icon="{ui:SymbolIcon Search16}" Height="30"/>
-        </Grid>
+        <ui:TextBox Height="30" Icon="{ui:SymbolIcon Search16}" IconPlacement="Right"/>
         <ui:ListView Grid.Row="2" ItemsSource="{Binding Assets}" SelectionChanged="Selector_OnSelectionChanged">
             <ui:ListView.ItemTemplate>
                 <DataTemplate>

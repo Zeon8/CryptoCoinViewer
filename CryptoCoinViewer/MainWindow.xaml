@@ -11,13 +11,9 @@
         d:DataContext="{d:DesignInstance viewmodels:MainWindowViewModel, IsDesignTimeCreatable=true}">
         
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-                
-        <ui:TitleBar Title="CryptoCoinViewer"/>
-        <ui:NavigationView Name="NavigationView" Grid.Row="1">
+        <ui:TitleBar Title="CryptoCoinViewer" x:Name="TitleBar"/>
+        <ui:NavigationView Name="NavigationView" 
+                           TitleBar="{Binding ElementName=TitleBar}">
             <ui:NavigationView.MenuItems>
                 <ui:NavigationViewItem Icon="{ui:SymbolIcon Home16}" Content="Home" 
                                        TargetPageType="{x:Type views:HomeView}" />
