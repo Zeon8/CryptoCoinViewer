@@ -10,6 +10,8 @@ public partial class HomeView : UserControl
     {
         InitializeComponent();
         DataContext = viewModel;
+
+        Loaded += (_, _) => Task.Run(viewModel.Load);
     }
 
 }

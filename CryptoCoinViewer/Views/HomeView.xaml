@@ -3,11 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:CryptoCoinViewer.Views"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:local="clr-namespace:CryptoCoinViewer.Views"
+             xmlns:viewModels="clr-namespace:CryptoCoinViewer.ViewModels"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <ui:TextBlock>Home page</ui:TextBlock>
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance viewModels:HomeViewModel}">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ui:TextBox Height="30" />
+            <ui:Button Grid.Column="2"  Icon="{ui:SymbolIcon Search16}" Height="30"/>
+        </Grid>
+        <ui:ListView Grid.Row="2" ItemsSource="{Binding Assets}">
+            <ui:ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Asset.Rank}"
+                                   HorizontalAlignment="Left" VerticalAlignment="Center" 
+                                   FontSize="18" FontWeight="Bold"/>
+                        <Image Grid.Column="1" Source="{Binding Image}"/>
+                        <StackPanel Grid.Column="3">
+                            <TextBlock FontSize="16" Text="{Binding Asset.Name}"/>
+                            <TextBlock Text="{Binding PriceUSD}" Margin="0,5"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ui:ListView.ItemTemplate>
+        </ui:ListView>
     </Grid>
 </UserControl>
