@@ -27,8 +27,11 @@ public partial class App : Application
         builder.Services.AddSingleton<INavigationService, NavigationService>();
         
         builder.Services.AddTransient<HomeViewModel>();
+        builder.Services.AddTransient<CurrencyDetailsViewModel>();
         builder.Services.AddTransient<MainWindowViewModel>();
+        
         builder.Services.AddTransient<HomeView>();
+        builder.Services.AddTransient<CurrencyDetailsView>();
         builder.Services.AddTransient<MainWindow>();
         var host = builder.Build();
         

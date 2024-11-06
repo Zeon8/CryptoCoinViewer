@@ -1,4 +1,5 @@
 using System.Windows.Controls;
+using System.Windows.Input;
 using CryptoCoinViewer.ViewModels;
 using Wpf.Ui.Controls;
 
@@ -14,4 +15,9 @@ public partial class HomeView : UserControl
         Loaded += (_, _) => Task.Run(viewModel.Load);
     }
 
+    private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var viewModel = (HomeViewModel)DataContext;
+        viewModel.OpenDetailsCommand.Execute(null);
+    }
 }
