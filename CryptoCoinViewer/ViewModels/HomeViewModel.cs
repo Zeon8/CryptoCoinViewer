@@ -11,10 +11,10 @@ namespace CryptoCoinViewer.ViewModels;
 
 public partial class HomeViewModel : ViewModelBase
 {
-    public ObservableCollection<AssetViewModel> Assets { get; } = new();
+    public ObservableCollection<AssetItem> AssetItems { get; } = new();
 
     [ObservableProperty]
-    private AssetViewModel _selectedAsset;
+    private AssetItem _selectedAsset;
     
     private readonly CryptoAssetsService _assetsService;
     private readonly INavigationService _navigationService;
@@ -34,7 +34,7 @@ public partial class HomeViewModel : ViewModelBase
                 .InvokeAsync(() =>
                 {
                     foreach (var asset in assets)
-                        Assets.Add(new AssetViewModel(asset));
+                        AssetItems.Add(new AssetItem(asset));
                 });
         }
     }

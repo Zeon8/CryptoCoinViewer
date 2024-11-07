@@ -16,7 +16,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <ui:TextBox Height="30" Icon="{ui:SymbolIcon Search16}" IconPlacement="Right" PlaceholderText="Search..."/>
-        <ui:ListView Grid.Row="2" ItemsSource="{Binding Assets}" SelectionChanged="Selector_OnSelectionChanged">
+        <ui:ListView Grid.Row="2" ItemsSource="{Binding AssetItems}" SelectionChanged="Selector_OnSelectionChanged">
             <ui:ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="10">

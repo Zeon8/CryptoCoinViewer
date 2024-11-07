@@ -1,14 +1,12 @@
-using CryptoCoinViewer.Models;
+namespace CryptoCoinViewer.Models;
 
-namespace CryptoCoinViewer.ViewModels;
-
-public class AssetViewModel
+public class AssetItem
 {
     public Asset Asset { get; }
 
     public string Image => $"https://assets.coincap.io/assets/icons/{Asset.Symbol.ToLower()}@2x.png";
-    
-    public AssetViewModel(Asset asset)
+
+    public AssetItem(Asset asset)
     {
         Asset = asset;
     }
