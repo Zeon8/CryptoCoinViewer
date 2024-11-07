@@ -8,10 +8,10 @@ namespace CryptoCoinViewer.Views;
 public partial class ValueCard : UserControl
 {
     public static readonly DependencyProperty TextProperty
-        = DependencyProperty.Register(nameof(Text), typeof(string), typeof(ValueType));
+        = DependencyProperty.Register(nameof(Text), typeof(string), typeof(ValueCard));
 
     public static readonly DependencyProperty ValueProperty
-        = DependencyProperty.Register(nameof(Value), typeof(object), typeof(ValueType));
+        = DependencyProperty.Register(nameof(Value), typeof(object), typeof(ValueCard));
 
     [Bindable(true)]
     public string Text
@@ -30,6 +30,5 @@ public partial class ValueCard : UserControl
     public ValueCard()
     {
         InitializeComponent();
-        DataContext = this;
     }
 }
