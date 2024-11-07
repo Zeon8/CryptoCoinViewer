@@ -15,7 +15,7 @@
             <RowDefinition Height="10" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <ui:TextBox Height="30" Icon="{ui:SymbolIcon Search16}" IconPlacement="Right"/>
+        <ui:TextBox Height="30" Icon="{ui:SymbolIcon Search16}" IconPlacement="Right" PlaceholderText="Search..."/>
         <ui:ListView Grid.Row="2" ItemsSource="{Binding Assets}" SelectionChanged="Selector_OnSelectionChanged">
             <ui:ListView.ItemTemplate>
                 <DataTemplate>
@@ -32,7 +32,7 @@
                         <Image Grid.Column="1" Source="{Binding Image}"/>
                         <StackPanel Grid.Column="3">
                             <TextBlock FontSize="16" Text="{Binding Asset.Name}"/>
-                            <TextBlock Text="{Binding PriceUsd}" Margin="0,5"/>
+                            <TextBlock Text="{Binding Asset.PriceUsd, StringFormat=${0}}" Margin="0,5"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
