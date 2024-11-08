@@ -4,6 +4,7 @@ public class AssetItem
 {
     public Asset Asset { get; }
 
+    public string FullName => $"{Asset.Name} ({Asset.Symbol})";
     public string Image => $"https://assets.coincap.io/assets/icons/{Asset.Symbol.ToLower()}@2x.png";
 
     public AssetItem(Asset asset)

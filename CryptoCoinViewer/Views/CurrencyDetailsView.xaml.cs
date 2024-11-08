@@ -5,9 +5,8 @@ namespace CryptoCoinViewer.Views;
 
 public partial class CurrencyDetailsView : UserControl
 {
-    public CurrencyDetailsView(CurrencyDetailsViewModel viewModel)
+    public CurrencyDetailsView()
     {
         InitializeComponent();
-        DataContext = viewModel;
     }
 }

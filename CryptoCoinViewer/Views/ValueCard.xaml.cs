@@ -11,7 +11,7 @@ public partial class ValueCard : UserControl
         = DependencyProperty.Register(nameof(Text), typeof(string), typeof(ValueCard));
 
     public static readonly DependencyProperty ValueProperty
-        = DependencyProperty.Register(nameof(Value), typeof(object), typeof(ValueCard));
+        = DependencyProperty.Register(nameof(Value), typeof(string), typeof(ValueCard));
 
     [Bindable(true)]
     public string Text
@@ -21,9 +21,9 @@ public partial class ValueCard : UserControl
     }
     
     [Bindable(true)]
-    public object Value
+    public string Value
     {
-        get => GetValue(ValueProperty);
+        get => (string)GetValue(ValueProperty);
         set => SetValue(ValueProperty, value);
     }
     

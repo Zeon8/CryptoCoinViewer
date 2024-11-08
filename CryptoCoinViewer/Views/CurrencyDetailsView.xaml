@@ -6,24 +6,34 @@
              xmlns:local="clr-namespace:CryptoCoinViewer.Views"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:viewModels="clr-namespace:CryptoCoinViewer.ViewModels"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:CurrencyDetailsViewModel}"
              d:DesignHeight="600" d:DesignWidth="400">
     
     <StackPanel Margin="10">
         
         <StackPanel Orientation="Horizontal">
-            <Image Source="https://assets.coincap.io/assets/icons/btc@2x.png" 
+            <Image Source="{Binding AssetItem.Image}" 
                    Width="48" VerticalAlignment="Top" Margin="20"/>
-            <TextBlock Text="Bitcoin (BTC)" VerticalAlignment="Center" FontSize="18"/>
+            <TextBlock Text="{Binding AssetItem.FullName}" VerticalAlignment="Center" FontSize="18"/>
         </StackPanel>
-        
-        <UniformGrid Grid.Row="1" Columns="2" VerticalAlignment="Top">
-            <local:ValueCard Text="Price" Value="$0" />
-            <local:ValueCard Text="Change" Value="-10%" />
-            <local:ValueCard Text="Market cap" Value="$0" />
-            <local:ValueCard Text="Volume (24Hr)" Value="$0" />
-            <local:ValueCard Text="Supply" Value="0 BTC" />
-            <local:ValueCard Text="VWAP" Value="$0" ToolTip="Volume Weighted Average Price"/>
+
+        <UniformGrid Grid.Row="1" Columns="2" VerticalAlignment="Top" DataContext="{Binding AssetItem.Asset}">
+            <local:ValueCard Text="Price" Value="{Binding PriceUsd, StringFormat={}{0:C}}" />
+            <local:ValueCard Text="Change" Value="{Binding ChangePercent24Hr, StringFormat={}{0:F3}%}" />
+            <local:ValueCard Text="Market cap" Value="{Binding MarketCapUsd, StringFormat={}{0:C}}" />
+            <local:ValueCard Text="Volume (24Hr)" Value="{Binding VolumeUsd24Hr, StringFormat={}{0:C}}" />
+            <local:ValueCard Text="Supply">
+                <local:ValueCard.Value>
+                    <MultiBinding StringFormat="{}{0:N0} {1}">
+                        <Binding Path="Supply"/>
+                        <Binding Path="Symbol"/>
+                    </MultiBinding>
+                </local:ValueCard.Value>
+            </local:ValueCard>
+            <local:ValueCard Text="VWAP" Value="{Binding Vwap24Hr, StringFormat={}{0:C}}" 
+                             ToolTip="Volume Weighted Average Price"/>
         </UniformGrid>
         <TextBlock Text="Markets" Margin="0,10"/>
         <ui:DataGrid ColumnWidth="*" CanUserResizeColumns="False" CanUserReorderColumns="False">
