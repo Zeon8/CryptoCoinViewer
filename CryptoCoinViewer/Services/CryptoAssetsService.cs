@@ -8,6 +8,7 @@ namespace CryptoCoinViewer.Services;
 public class CryptoAssetsService
 {
     private readonly HttpClient _client;
+    private JsonSerializerOptions _options = new(JsonSerializerDefaults.Web);
     private const int Limit = 10;
 
     public CryptoAssetsService(HttpClient client)
@@ -17,8 +18,13 @@ public class CryptoAssetsService
 
     public async Task<IEnumerable<Asset>?> GetAssets()
     {
-        var response = await _client.GetFromJsonAsync<AssetsResponse>($"assets?limit={Limit}", new JsonSerializerOptions(JsonSerializerDefaults.Web));
+        var response = await _client.GetFromJsonAsync<AssetsResponse<Asset>>($"assets?limit={Limit}", _options);
         return response?.Data;
     }
 
+    public async Task<IEnumerable<Market>?> GetMarkets(Asset asset)
+    {
+        var response = await _client.GetFromJsonAsync<AssetsResponse<Market>>($"assets/{asset.Id}/markets?limit={Limit}", _options);
+        return response?.Data;
+    }
 }

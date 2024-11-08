@@ -14,7 +14,7 @@ public partial class HomeViewModel : ViewModelBase
     public ObservableCollection<AssetItem> AssetItems { get; } = new();
 
     [ObservableProperty]
-    private AssetItem _selectedAssetItem;
+    private AssetItem? _selectedAssetItem;
     
     private readonly CryptoAssetsService _assetsService;
     private readonly INavigationService _navigationService;
@@ -40,9 +40,10 @@ public partial class HomeViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void OpenDetails()
+    private Task OpenDetails()
     {
-        var viewModel = new CurrencyDetailsViewModel(SelectedAssetItem);
+        var viewModel = new CurrencyDetailsViewModel(SelectedAssetItem, _assetsService);
         _navigationService.Navigate(typeof(CurrencyDetailsView), viewModel);
+        return viewModel.Load();
     }
 }

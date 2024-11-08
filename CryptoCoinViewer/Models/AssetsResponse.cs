@@ -1,6 +1,6 @@
 namespace CryptoCoinViewer.Models;
 
-public record AssetsResponse
+public record AssetsResponse<T>
 {
-    public required Asset[] Data { get; init; }
+    public required IEnumerable<T> Data { get; init; }
 }
