@@ -23,8 +23,7 @@ public partial class CurrencyDetailsViewModel : ViewModelBase
 
     public async Task Load()
     {
-        IEnumerable<Market>? markets = await _cryptoAssetsService.GetMarkets(AssetItem.Asset);
-        if(markets is not null)
-            await Application.Current.Dispatcher.InvokeAsync(() => Markets = markets);
+        IEnumerable<Market> markets = await _cryptoAssetsService.GetMarkets(AssetItem.Asset);
+        await Application.Current.Dispatcher.InvokeAsync(() => Markets = markets);
     }
 }
