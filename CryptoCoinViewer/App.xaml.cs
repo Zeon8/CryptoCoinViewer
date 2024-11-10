@@ -28,7 +28,8 @@ public partial class App : Application
         
         builder.Services.AddTransient<HomeViewModel>();
         builder.Services.AddTransient<MainWindowViewModel>();
-        
+
+        builder.Services.AddTransient<ConverterView>();
         builder.Services.AddTransient<HomeView>();
         builder.Services.AddTransient<CurrencyDetailsView>();
         builder.Services.AddTransient<MainWindow>();

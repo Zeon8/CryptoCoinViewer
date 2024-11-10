@@ -17,7 +17,11 @@
             <ui:NavigationView.MenuItems>
                 <ui:NavigationViewItem Icon="{ui:SymbolIcon Home16}" Content="Home" 
                                        TargetPageType="{x:Type views:HomeView}" />
-               <ui:NavigationViewItem TargetPageType="{x:Type views:CurrencyDetailsView}"
+                <ui:NavigationViewItem Icon="{ui:SymbolIcon Symbol=ArrowRepeatAll16}" 
+                                       Content="Currency Converter" 
+                                       TargetPageType="{x:Type views:ConverterView}"/>
+                
+                <ui:NavigationViewItem TargetPageType="{x:Type views:CurrencyDetailsView}"
                                                       Visibility="Collapsed"/> 
             </ui:NavigationView.MenuItems>
         </ui:NavigationView>
