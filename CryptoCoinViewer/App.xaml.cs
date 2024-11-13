@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Windows;
 using CryptoCoinViewer.Services;
 using CryptoCoinViewer.ViewModels;

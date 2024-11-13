@@ -6,6 +6,7 @@
         xmlns:views="clr-namespace:CryptoCoinViewer.Views"
         xmlns:viewmodels="clr-namespace:CryptoCoinViewer.ViewModels"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:resources="clr-namespace:CryptoCoinViewer.Resources"
         mc:Ignorable="d"
         Title="CryptoCoinViewer" Height="450" Width="800"
         d:DataContext="{d:DesignInstance viewmodels:MainWindowViewModel, IsDesignTimeCreatable=true}">
@@ -15,10 +16,10 @@
         <ui:NavigationView Name="NavigationView" 
                            TitleBar="{Binding ElementName=TitleBar}">
             <ui:NavigationView.MenuItems>
-                <ui:NavigationViewItem Icon="{ui:SymbolIcon Home16}" Content="Home" 
+                <ui:NavigationViewItem Icon="{ui:SymbolIcon Home16}" Content="{x:Static resources:Locale.Home}" 
                                        TargetPageType="{x:Type views:HomeView}" />
                 <ui:NavigationViewItem Icon="{ui:SymbolIcon Symbol=ArrowRepeatAll16}" 
-                                       Content="Currency Converter" 
+                                       Content="{x:Static resources:Locale.CurrencyConverter}" 
                                        TargetPageType="{x:Type views:ConverterView}"/>
                 
                 <ui:NavigationViewItem TargetPageType="{x:Type views:CurrencyDetailsView}"

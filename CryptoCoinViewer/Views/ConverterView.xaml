@@ -7,6 +7,7 @@
              xmlns:viewModels="clr-namespace:CryptoCoinViewer.ViewModels"
              xmlns:converters="clr-namespace:CryptoCoinViewer.Converters"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:resources="clr-namespace:CryptoCoinViewer.Resources"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=viewModels:ConverterViewModel}"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -27,10 +28,10 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Currency" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-        <TextBlock Text="Amount" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="1"/>
-        <TextBlock Text="Currency" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"/>
-        <TextBlock Text="Amount" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5" />
+        <TextBlock Text="{x:Static resources:Locale.Currency}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" />
+        <TextBlock Text="{x:Static resources:Locale.Amount}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="1"/>
+        <TextBlock Text="{x:Static resources:Locale.Currency}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"/>
+        <TextBlock Text="{x:Static resources:Locale.Amount}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5" />
         
         <local:CurrencyComboBox Margin="0,10" Grid.Column="2" Grid.Row="0"
                                 DataContext="{Binding FirstCurrency}"/>
@@ -39,7 +40,7 @@
                       Minimum="0"
                       Value="{Binding FirstCurrency.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Grid.Row="2" Grid.Column="2"
-                   Text="Enter value and press enter to update." Foreground="DimGray" />
+                   Text="{x:Static resources:Locale.EnterAndPressEnter}" Foreground="DimGray" />
         
         <ui:SymbolIcon Symbol="ArrowBidirectionalUpDown16" FontSize="24" Margin="0,10"
                                                           Grid.Column="2" Grid.Row="3"/>
@@ -51,7 +52,7 @@
                       Minimum="0"
                       Value="{Binding SecondCurrency.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         <TextBlock Grid.Column="2" Grid.Row="6"
-                   Text="Enter value and press enter to update." Foreground="DimGray" />
+                   Text="{x:Static resources:Locale.EnterAndPressEnter}" Foreground="DimGray" />
         
     </Grid>
 </UserControl>
