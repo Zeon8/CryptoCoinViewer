@@ -25,7 +25,8 @@ public partial class App : Application
         });
         builder.Services.AddSingleton<CryptoAssetsService>();
         builder.Services.AddSingleton<INavigationService, NavigationService>();
-        
+
+        builder.Services.AddTransient<ConverterViewModel>();
         builder.Services.AddTransient<HomeViewModel>();
         builder.Services.AddTransient<MainWindowViewModel>();
 
