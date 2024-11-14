@@ -171,4 +171,19 @@
   <data name="VWAPFullName" xml:space="preserve">
     <value>Середньозважена ціна за обсягом</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Мова</value>
+  </data>
+  <data name="SettingsSavedTitle" xml:space="preserve">
+    <value>Налаштування збережені</value>
+  </data>
+  <data name="SettingsSavedMessage" xml:space="preserve">
+    <value>Налаштування збережені. Деякі зміни вимагають перезапуску додатку для застосування.</value>
+  </data>
 </root>

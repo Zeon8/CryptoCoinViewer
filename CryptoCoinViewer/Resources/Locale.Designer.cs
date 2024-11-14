@@ -133,6 +133,15 @@ namespace CryptoCoinViewer.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Market cap.
         /// </summary>
         public static string MarketCap {
@@ -169,11 +178,47 @@ namespace CryptoCoinViewer.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search....
         /// </summary>
         public static string Search {
             get {
                 return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings saved. Some changes require a restart of the application to be applied..
+        /// </summary>
+        public static string SettingsSavedMessage {
+            get {
+                return ResourceManager.GetString("SettingsSavedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings saved..
+        /// </summary>
+        public static string SettingsSavedTitle {
+            get {
+                return ResourceManager.GetString("SettingsSavedTitle", resourceCulture);
             }
         }
         

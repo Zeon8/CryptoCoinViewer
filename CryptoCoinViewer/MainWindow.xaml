@@ -25,6 +25,10 @@
                 <ui:NavigationViewItem TargetPageType="{x:Type views:CurrencyDetailsView}"
                                                       Visibility="Collapsed"/> 
             </ui:NavigationView.MenuItems>
+            <ui:NavigationView.FooterMenuItems>
+                <ui:NavigationViewItem Content="{x:Static resources:Locale.Settings}"
+                    Icon="{ui:SymbolIcon Symbol=Settings16}" TargetPageType="{x:Type views:SettingsView}"/>
+            </ui:NavigationView.FooterMenuItems>
         </ui:NavigationView>
     </Grid>
     
