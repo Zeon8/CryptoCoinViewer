@@ -23,21 +23,21 @@ namespace CryptoCoinViewer.Services
             return Languages.FirstOrDefault(lang => lang.Code == code);
         }
 
-        private Language GetDefaultLanguageName()
+        public Language GetDefaultLanguage()
         {
             return GetLanguage(CultureInfo.CurrentUICulture.Name) ?? Languages.First();
         }
 
-        public Language GetLanguage(Settings settings)
+        public Language GetLanguageOrDefault(string languageCode)
         {
-            return GetLanguage(settings.LanguageCode) ?? GetDefaultLanguageName();
+            return GetLanguage(languageCode) ?? GetDefaultLanguage();
         }
 
-        public void ApplyLanguage(Settings settings)
+        public void ApplyLanguage(string languageCode)
         {
             try
             {
-                CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(settings.LanguageCode);
+                CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo(languageCode);
             }
             catch (CultureNotFoundException)
             {

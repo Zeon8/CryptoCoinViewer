@@ -1,4 +1,5 @@
 ﻿using CryptoCoinViewer.Models;
+using System.Globalization;
 using System.IO;
 using System.Text.Json;
 
@@ -6,27 +7,26 @@ namespace CryptoCoinViewer.Services
 {
     public class SettingsService
     {
-        private Settings? _settings;
-
-        public async Task<Settings?> GetSettings()
+        public async Task<Settings?> LoadSettings()
         {
-            if (_settings is not null)
-                return _settings;
-
             var path = GetPath();
             if (!File.Exists(path))
                 return null;
 
             string text = await File.ReadAllTextAsync(path);
-            return _settings = JsonSerializer.Deserialize<Settings?>(text);
+            return JsonSerializer.Deserialize<Settings?>(text);
         }
 
         public Task Save(Settings settings)
         {
-            _settings = settings;
             var path = GetPath();
             Directory.CreateDirectory(Path.GetDirectoryName(path)!);
             return File.WriteAllTextAsync(path, JsonSerializer.Serialize(settings));
+        }
+
+        public Settings GetDefaultSettings()
+        {
+            return new Settings(CultureInfo.CurrentUICulture.Name, ApplicationTheme.System);
         }
 
         private string GetPath()

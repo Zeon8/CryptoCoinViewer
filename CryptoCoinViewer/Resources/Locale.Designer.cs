@@ -97,6 +97,15 @@ namespace CryptoCoinViewer.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dark.
+        /// </summary>
+        public static string DarkTheme {
+            get {
+                return ResourceManager.GetString("DarkTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter value and press enter to update..
         /// </summary>
         public static string EnterAndPressEnter {
@@ -124,6 +133,15 @@ namespace CryptoCoinViewer.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to High contrast.
+        /// </summary>
+        public static string HightConstrastTheme {
+            get {
+                return ResourceManager.GetString("HightConstrastTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
@@ -138,6 +156,15 @@ namespace CryptoCoinViewer.Resources {
         public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string LightTheme {
+            get {
+                return ResourceManager.GetString("LightTheme", resourceCulture);
             }
         }
         
@@ -228,6 +255,24 @@ namespace CryptoCoinViewer.Resources {
         public static string Supply {
             get {
                 return ResourceManager.GetString("Supply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.
+        /// </summary>
+        public static string SystemTheme {
+            get {
+                return ResourceManager.GetString("SystemTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme.
+        /// </summary>
+        public static string Theme {
+            get {
+                return ResourceManager.GetString("Theme", resourceCulture);
             }
         }
         

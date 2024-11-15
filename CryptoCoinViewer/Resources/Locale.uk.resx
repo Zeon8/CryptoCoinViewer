@@ -186,4 +186,19 @@
   <data name="SettingsSavedMessage" xml:space="preserve">
     <value>Налаштування збережені. Деякі зміни вимагають перезапуску додатку для застосування.</value>
   </data>
+  <data name="SystemTheme" xml:space="preserve">
+    <value>Системна</value>
+  </data>
+  <data name="DarkTheme" xml:space="preserve">
+    <value>Темна</value>
+  </data>
+  <data name="LightTheme" xml:space="preserve">
+    <value>Світла</value>
+  </data>
+  <data name="HightConstrastTheme" xml:space="preserve">
+    <value>Висококонтрасна</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Тема</value>
+  </data>
 </root>

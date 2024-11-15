@@ -9,7 +9,8 @@
              xmlns:resources="clr-namespace:CryptoCoinViewer.Resources"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             d:DataContext="{d:DesignInstance viewModels:SettingsViewModel}">
+             d:DataContext="{d:DesignInstance viewModels:SettingsViewModel}"
+             Foreground="{DynamicResource TextFillColorPrimaryBrush}">
     <Grid Margin="20">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -27,6 +28,11 @@
                        Grid.Column="0" Grid.Row="0"/>
             <ComboBox Grid.Column="2" Grid.Row="0" ItemsSource="{Binding Languages}"
                       DisplayMemberPath="Name" SelectedItem="{Binding SelectedLanguage}"/>
+
+            <TextBlock Text="{x:Static resources:Locale.Theme}" VerticalAlignment="Center" 
+                       Grid.Column="0" Grid.Row="2"/>
+            <ComboBox Grid.Column="2" Grid.Row="2" ItemsSource="{Binding Themes}" 
+                      DisplayMemberPath="Name" SelectedItem="{Binding SelectedTheme}"/>
         </Grid>
         <ui:Button VerticalAlignment="Bottom" HorizontalAlignment="Right"
                    Content="{x:Static resources:Locale.Save}" Appearance="Primary" 

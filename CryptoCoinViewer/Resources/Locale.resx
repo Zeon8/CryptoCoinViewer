@@ -186,4 +186,19 @@
   <data name="SettingsSavedMessage" xml:space="preserve">
     <value>Settings saved. Some changes require a restart of the application to be applied.</value>
   </data>
+  <data name="SystemTheme" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="DarkTheme" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="LightTheme" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="HightConstrastTheme" xml:space="preserve">
+    <value>High contrast</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
 </root>

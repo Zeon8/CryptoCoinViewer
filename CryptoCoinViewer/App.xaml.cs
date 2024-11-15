@@ -1,8 +1,5 @@
-﻿using System.Diagnostics;
-using System.Globalization;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Windows;
-using CryptoCoinViewer.Models;
 using CryptoCoinViewer.Services;
 using CryptoCoinViewer.ViewModels;
 using CryptoCoinViewer.Views;
@@ -25,11 +22,15 @@ public partial class App : Application
             BaseAddress = new Uri("https://api.coincap.io/v2/")
         });
 
-        builder.Services.AddSingleton<DialogService>();
-        builder.Services.AddSingleton<LocalizationService>();
-        builder.Services.AddSingleton<SettingsService>();
-        builder.Services.AddSingleton<CryptoAssetsService>();
         builder.Services.AddSingleton<INavigationService, NavigationService>();
+        builder.Services.AddSingleton<IThemeService, Wpf.Ui.ThemeService>();
+
+        builder.Services.AddSingleton<CryptoAssetsService>();
+        builder.Services.AddSingleton<SettingsService>();
+        builder.Services.AddSingleton<SettingsApplier>();
+        builder.Services.AddSingleton<DialogService>();
+        builder.Services.AddSingleton<Services.ThemeService>();
+        builder.Services.AddSingleton<LocalizationService>();
 
         builder.Services.AddTransient<SettingsViewModel>();
         builder.Services.AddTransient<ConverterViewModel>();
@@ -43,7 +44,7 @@ public partial class App : Application
         builder.Services.AddTransient<MainWindow>();
         var host = builder.Build();
 
-        SetupLocalization(host);
+        LoadSettings(host);
 
         host.Services.GetRequiredService<MainWindow>().Show();
         base.OnStartup(e);
@@ -51,15 +52,13 @@ public partial class App : Application
 
     }
 
-    private void SetupLocalization(IHost host)
+    private void LoadSettings(IHost host)
     {
         var settingsService = host.Services.GetRequiredService<SettingsService>();
-        var localizationService = host.Services.GetRequiredService<LocalizationService>();
+        var settingsApplier = host.Services.GetRequiredService<SettingsApplier>();
 
-        var settings = Task.Run(settingsService.GetSettings).GetAwaiter().GetResult();
+        var settings = Task.Run(settingsService.LoadSettings).GetAwaiter().GetResult();
         if (settings is not null)
-        {
-            localizationService.ApplyLanguage(settings);
-        }
+            settingsApplier.ApplySettings(settings);
     }
 }

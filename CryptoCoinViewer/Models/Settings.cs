@@ -1,4 +1,4 @@
 ﻿namespace CryptoCoinViewer.Models
 {
-    public record Settings(string LanguageCode);
+    public record Settings(string LanguageCode, ApplicationTheme Theme);
 }
