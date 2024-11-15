@@ -9,7 +9,8 @@
              xmlns:resources="clr-namespace:CryptoCoinViewer.Resources"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance viewModels:CurrencyDetailsViewModel}"
-             d:DesignHeight="600" d:DesignWidth="400">
+             d:DesignHeight="600" d:DesignWidth="400"
+             Foreground="{DynamicResource TextFillColorPrimaryBrush}">
     
     <StackPanel Margin="10">
         <StackPanel Orientation="Horizontal">
