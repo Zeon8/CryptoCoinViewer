@@ -24,16 +24,17 @@
                   SelectedItem="{Binding AssetItem}">
             <ComboBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" d:DataContext="{d:DesignInstance models:AssetItem}">
+                    <StackPanel Orientation="Horizontal" d:DataContext="{d:DesignInstance models:AssetItem}">
                             <Image Source="{Binding Image}" Height="32"/>
                             <TextBlock Text="{Binding Asset.Name}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
         </ComboBox>
-        <Image Height="16" Source="{Binding AssetItem.Image}" HorizontalAlignment="Right" Margin="0,0,30,0"/>
-        <TextBlock Text="{x:Static resources:Locale.EnterCurrencyName}" IsHitTestVisible="False" Foreground="DimGray" 
-                   VerticalAlignment="Center" Margin="10,0" 
+        <Image Height="16" Source="{Binding AssetItem.Image}" HorizontalAlignment="Right" 
+               Margin="0,0,30,0"/>
+        <TextBlock Text="{x:Static resources:Locale.EnterCurrencyName}" IsHitTestVisible="False" 
+                   Foreground="DimGray" VerticalAlignment="Center" Margin="10,0" 
                    Visibility="{Binding Text, ElementName=ComboBox, Converter={StaticResource VisibilityConverter}}"/>
     </Grid>
 </UserControl>

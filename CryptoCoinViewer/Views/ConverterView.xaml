@@ -12,48 +12,35 @@
              d:DataContext="{d:DesignInstance Type=viewModels:ConverterViewModel}"
              d:DesignHeight="450" d:DesignWidth="800"
              Foreground="{DynamicResource TextFillColorPrimaryBrush}">
-    
-    <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="50">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <UserControl.Resources>
+        <Grid x:Key="CurrencyControl" d:DataContext="{d:DesignInstance Type=viewModels:CurrencyViewModel}"
+              x:Shared="false">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="{x:Static resources:Locale.Currency}" VerticalAlignment="Center" 
+                       Grid.Column="0" Grid.Row="0" />
+            <TextBlock Text="{x:Static resources:Locale.Amount}" VerticalAlignment="Center"  
+                       Grid.Column="0" Grid.Row="1"/>
+            <local:CurrencyComboBox Margin="0,10" Grid.Column="2" Grid.Row="0"/>
+            <ui:NumberBox Grid.Column="2" Grid.Row="1" Icon="{ui:SymbolIcon Symbol=Money16}" 
+                          Minimum="0"
+                          Value="{Binding Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" Margin="0,5,0,0"
+                       Foreground="DimGray" Text="{x:Static resources:Locale.EnterAndPressEnter}" />
+        </Grid>
+    </UserControl.Resources>
 
-        <TextBlock Text="{x:Static resources:Locale.Currency}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" />
-        <TextBlock Text="{x:Static resources:Locale.Amount}" VerticalAlignment="Center"  Grid.Column="0" Grid.Row="1"/>
-        <TextBlock Text="{x:Static resources:Locale.Currency}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4"/>
-        <TextBlock Text="{x:Static resources:Locale.Amount}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="5" />
-        
-        <local:CurrencyComboBox Margin="0,10" Grid.Column="2" Grid.Row="0"
-                                DataContext="{Binding FirstCurrency}"/>
-        
-        <ui:NumberBox Icon="{ui:SymbolIcon Symbol=Money16}" Grid.Column="2" Grid.Row="1" 
-                      Minimum="0"
-                      Value="{Binding FirstCurrency.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Grid.Row="2" Grid.Column="2"
-                   Text="{x:Static resources:Locale.EnterAndPressEnter}" Foreground="DimGray" />
-        
-        <ui:SymbolIcon Symbol="ArrowBidirectionalUpDown16" FontSize="24" Margin="0,10"
-                                                          Grid.Column="2" Grid.Row="3"/>
-        
-        <local:CurrencyComboBox Grid.Column="2" Grid.Row="4" Margin="0,10"
-                                DataContext="{Binding SecondCurrency}"/>
-        
-        <ui:NumberBox Icon="{ui:SymbolIcon Symbol=Money16}" Grid.Column="2" Grid.Row="5"
-                      Minimum="0"
-                      Value="{Binding SecondCurrency.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBlock Grid.Column="2" Grid.Row="6"
-                   Text="{x:Static resources:Locale.EnterAndPressEnter}" Foreground="DimGray" />
-        
-    </Grid>
+    <StackPanel HorizontalAlignment="Stretch" Margin="50">
+        <ContentControl Content="{StaticResource CurrencyControl}" DataContext="{Binding FirstCurrency}"/>
+        <ui:SymbolIcon Symbol="ArrowBidirectionalUpDown24" FontSize="24" Height="32"/>
+        <ContentControl Content="{StaticResource CurrencyControl}" DataContext="{Binding SecondCurrency}"/>
+    </StackPanel>
 </UserControl>

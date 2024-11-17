@@ -35,14 +35,16 @@
                         </MultiBinding>
                     </local:ValueCard.Value>
                 </local:ValueCard>
-                <local:ValueCard Text="{x:Static resources:Locale.VWAP}" Value="{Binding Vwap24Hr, StringFormat={}{0:C}}" 
+                <local:ValueCard Text="{x:Static resources:Locale.VWAP}" 
+                                 Value="{Binding Vwap24Hr, StringFormat={}{0:C}}" 
                                  ToolTip="{x:Static resources:Locale.VWAPFullName}"/>
             </UniformGrid>
             <TextBlock Text="{x:Static resources:Locale.Markets}" Margin="0,10"/>
             <DataGrid CanUserReorderColumns="False" ItemsSource="{Binding Markets}" 
                       AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="{x:Static resources:Locale.Exchange}" Binding="{Binding ExchangeId}"/>
+                    <DataGridTextColumn Header="{x:Static resources:Locale.Exchange}" 
+                                        Binding="{Binding ExchangeId}"/>
                     <DataGridTextColumn Header="{x:Static resources:Locale.Pair}">
                         <DataGridTextColumn.Binding>
                             <MultiBinding StringFormat="{}{0}/{1}">
@@ -66,12 +68,18 @@
 
                 <RadioButton Content="{x:Static resources:Locale.Day}" IsChecked="True"
                              properties:CommandParameter.Int32="1" />
-                <RadioButton Content="{x:Static resources:Locale.Week}" properties:CommandParameter.Int32="7"/>
-                <RadioButton Content="{x:Static resources:Locale.TwoWeeks}" properties:CommandParameter.Int32="14"/>
-                <RadioButton Content="{x:Static resources:Locale.Month}" properties:CommandParameter.Int32="30"/>
-                <RadioButton Content="{x:Static resources:Locale.ThreeMonths}" properties:CommandParameter.Int32="90"/>
-                <RadioButton Content="{x:Static resources:Locale.SixMonths}" properties:CommandParameter.Int32="180"/>
-                <RadioButton Content="{x:Static resources:Locale.Year}" properties:CommandParameter.Int32="365"/>
+                <RadioButton Content="{x:Static resources:Locale.Week}" 
+                             properties:CommandParameter.Int32="7"/>
+                <RadioButton Content="{x:Static resources:Locale.TwoWeeks}" 
+                             properties:CommandParameter.Int32="14"/>
+                <RadioButton Content="{x:Static resources:Locale.Month}" 
+                             properties:CommandParameter.Int32="30"/>
+                <RadioButton Content="{x:Static resources:Locale.ThreeMonths}" 
+                             properties:CommandParameter.Int32="90"/>
+                <RadioButton Content="{x:Static resources:Locale.SixMonths}" 
+                             properties:CommandParameter.Int32="180"/>
+                <RadioButton Content="{x:Static resources:Locale.Year}" 
+                             properties:CommandParameter.Int32="365"/>
             </WrapPanel>
             <lvc:CartesianChart DataContext="{Binding ChartViewModel}" Series="{Binding Series}" 
                                 XAxes="{Binding XAxes}" Height="300"/>
