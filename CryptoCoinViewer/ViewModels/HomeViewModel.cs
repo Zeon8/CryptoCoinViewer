@@ -21,12 +21,14 @@ public partial class HomeViewModel : ViewModelBase
     private AssetItem? _selectedAssetItem;
 
     private readonly CryptoAssetsService _assetsService;
+    private readonly ChartService _chartService;
     private readonly INavigationService _navigationService;
 
-    public HomeViewModel(CryptoAssetsService assetsService, INavigationService navigationService)
+    public HomeViewModel(CryptoAssetsService assetsService, INavigationService navigationService, ChartService chartService)
     {
         _assetsService = assetsService;
         _navigationService = navigationService;
+        _chartService = chartService;
     }
 
     public async Task Load()
@@ -47,7 +49,7 @@ public partial class HomeViewModel : ViewModelBase
         if (SelectedAssetItem is null)
             return Task.CompletedTask;
 
-        var viewModel = new CurrencyDetailsViewModel(SelectedAssetItem, _assetsService);
+        var viewModel = new CurrencyDetailsViewModel(SelectedAssetItem, _assetsService, _chartService);
         _navigationService.Navigate(typeof(CurrencyDetailsView), viewModel);
         return viewModel.Load();
     }

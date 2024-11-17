@@ -5,54 +5,76 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:CryptoCoinViewer.Views"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
              xmlns:viewModels="clr-namespace:CryptoCoinViewer.ViewModels"
              xmlns:resources="clr-namespace:CryptoCoinViewer.Resources"
+             xmlns:properties="clr-namespace:CryptoCoinViewer.AttachedProperties"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance viewModels:CurrencyDetailsViewModel}"
              d:DesignHeight="600" d:DesignWidth="400"
              Foreground="{DynamicResource TextFillColorPrimaryBrush}">
-    
-    <StackPanel Margin="10">
-        <StackPanel Orientation="Horizontal">
-            <Image Source="{Binding AssetItem.Image}" 
-                   Width="48" VerticalAlignment="Top" Margin="20"/>
-            <TextBlock Text="{Binding AssetItem.FullName}" VerticalAlignment="Center" FontSize="18"/>
-        </StackPanel>
 
-        <UniformGrid Grid.Row="1" Columns="2" VerticalAlignment="Top" DataContext="{Binding AssetItem.Asset}">
-            <local:ValueCard Text="{x:Static resources:Locale.Price}" Value="{Binding PriceUsd, StringFormat={}{0:C}}" />
-            <local:ValueCard Text="{x:Static resources:Locale.Change}" Value="{Binding ChangePercent24Hr, StringFormat={}{0:F3}%}" />
-            <local:ValueCard Text="{x:Static resources:Locale.MarketCap}" Value="{Binding MarketCapUsd, StringFormat={}{0:C}}" />
-            <local:ValueCard Text="{x:Static resources:Locale.Volume24Hr}" Value="{Binding VolumeUsd24Hr, StringFormat={}{0:C}}" />
-            <local:ValueCard Text="{x:Static resources:Locale.Supply}">
-                <local:ValueCard.Value>
-                    <MultiBinding StringFormat="{}{0:N0} {1}">
-                        <Binding Path="Supply"/>
-                        <Binding Path="Symbol"/>
-                    </MultiBinding>
-                </local:ValueCard.Value>
-            </local:ValueCard>
-            <local:ValueCard Text="{x:Static resources:Locale.VWAP}" Value="{Binding Vwap24Hr, StringFormat={}{0:C}}" 
-                             ToolTip="{x:Static resources:Locale.VWAPFullName}"/>
-        </UniformGrid>
-        <TextBlock Text="{x:Static resources:Locale.Markets}" Margin="0,10"/>
-        <DataGrid CanUserReorderColumns="False" ItemsSource="{Binding Markets}" 
-                  AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="{x:Static resources:Locale.Exchange}" Binding="{Binding ExchangeId}"/>
-                <DataGridTextColumn Header="{x:Static resources:Locale.Pair}">
-                    <DataGridTextColumn.Binding>
-                        <MultiBinding StringFormat="{}{0}/{1}">
-                            <Binding Path="BaseSymbol"/>
-                            <Binding Path="QuoteSymbol"/>
+    <ScrollViewer>
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding AssetItem.Image}" 
+                       Width="48" VerticalAlignment="Top" Margin="20"/>
+                <TextBlock Text="{Binding AssetItem.FullName}" VerticalAlignment="Center" FontSize="18"/>
+            </StackPanel>
+
+            <UniformGrid Grid.Row="1" Columns="2" VerticalAlignment="Top" DataContext="{Binding AssetItem.Asset}">
+                <local:ValueCard Text="{x:Static resources:Locale.Price}" Value="{Binding PriceUsd, StringFormat={}{0:C}}" />
+                <local:ValueCard Text="{x:Static resources:Locale.Change}" Value="{Binding ChangePercent24Hr, StringFormat={}{0:F3}%}" />
+                <local:ValueCard Text="{x:Static resources:Locale.MarketCap}" Value="{Binding MarketCapUsd, StringFormat={}{0:C}}" />
+                <local:ValueCard Text="{x:Static resources:Locale.Volume24Hr}" Value="{Binding VolumeUsd24Hr, StringFormat={}{0:C}}" />
+                <local:ValueCard Text="{x:Static resources:Locale.Supply}">
+                    <local:ValueCard.Value>
+                        <MultiBinding StringFormat="{}{0:N0} {1}">
+                            <Binding Path="Supply"/>
+                            <Binding Path="Symbol"/>
                         </MultiBinding>
-                    </DataGridTextColumn.Binding>
-                </DataGridTextColumn>
-                <DataGridTextColumn Header="{x:Static resources:Locale.Price}" Binding="{Binding PriceUsd, StringFormat={}{0:N}}"/>
-                <DataGridTextColumn Header="{x:Static resources:Locale.Volume24Hr}" Binding="{Binding VolumeUsd24Hr, StringFormat={}{0:N}}"/>
-                <DataGridTextColumn Header="{x:Static resources:Locale.VolumePercent}" Binding="{Binding VolumePercent}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-    </StackPanel>
-   
+                    </local:ValueCard.Value>
+                </local:ValueCard>
+                <local:ValueCard Text="{x:Static resources:Locale.VWAP}" Value="{Binding Vwap24Hr, StringFormat={}{0:C}}" 
+                                 ToolTip="{x:Static resources:Locale.VWAPFullName}"/>
+            </UniformGrid>
+            <TextBlock Text="{x:Static resources:Locale.Markets}" Margin="0,10"/>
+            <DataGrid CanUserReorderColumns="False" ItemsSource="{Binding Markets}" 
+                      AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="*">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{x:Static resources:Locale.Exchange}" Binding="{Binding ExchangeId}"/>
+                    <DataGridTextColumn Header="{x:Static resources:Locale.Pair}">
+                        <DataGridTextColumn.Binding>
+                            <MultiBinding StringFormat="{}{0}/{1}">
+                                <Binding Path="BaseSymbol"/>
+                                <Binding Path="QuoteSymbol"/>
+                            </MultiBinding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="{x:Static resources:Locale.Price}" Binding="{Binding PriceUsd, StringFormat={}{0:N}}"/>
+                    <DataGridTextColumn Header="{x:Static resources:Locale.Volume24Hr}" Binding="{Binding VolumeUsd24Hr, StringFormat={}{0:N}}"/>
+                    <DataGridTextColumn Header="{x:Static resources:Locale.VolumePercent}" Binding="{Binding VolumePercent}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <WrapPanel Margin="0,10" HorizontalAlignment="Stretch">
+                <WrapPanel.Resources>
+                    <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Type ToggleButton}}">
+                        <Setter Property="Margin" Value="3"/>
+                        <Setter Property="Command" Value="{Binding LoadCandlesCommand}"/>
+                    </Style>
+                </WrapPanel.Resources>
+
+                <RadioButton Content="{x:Static resources:Locale.Day}" IsChecked="True"
+                             properties:CommandParameter.Int32="1" />
+                <RadioButton Content="{x:Static resources:Locale.Week}" properties:CommandParameter.Int32="7"/>
+                <RadioButton Content="{x:Static resources:Locale.TwoWeeks}" properties:CommandParameter.Int32="14"/>
+                <RadioButton Content="{x:Static resources:Locale.Month}" properties:CommandParameter.Int32="30"/>
+                <RadioButton Content="{x:Static resources:Locale.ThreeMonths}" properties:CommandParameter.Int32="90"/>
+                <RadioButton Content="{x:Static resources:Locale.SixMonths}" properties:CommandParameter.Int32="180"/>
+                <RadioButton Content="{x:Static resources:Locale.Year}" properties:CommandParameter.Int32="365"/>
+            </WrapPanel>
+            <lvc:CartesianChart DataContext="{Binding ChartViewModel}" Series="{Binding Series}" 
+                                XAxes="{Binding XAxes}" Height="300"/>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

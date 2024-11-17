@@ -7,14 +7,14 @@ namespace CryptoCoinViewer.Services;
 
 public class CryptoAssetsService
 {
-    private readonly HttpClient _client;
-    private JsonSerializerOptions _options = new(JsonSerializerDefaults.Web);
-    private const int Limit = 10;
-
-    public CryptoAssetsService(HttpClient client)
+    private readonly HttpClient _client = new HttpClient()
     {
-        _client = client;
-    }
+        BaseAddress = new Uri("https://api.coincap.io/v2/")
+    };
+
+    private readonly JsonSerializerOptions _options = new(JsonSerializerDefaults.Web);
+    
+    private const int Limit = 10;
 
     public Task<IEnumerable<Asset>> SearchAssets(string name) 
         => GetAssets($"limit={Limit}&search={name}");

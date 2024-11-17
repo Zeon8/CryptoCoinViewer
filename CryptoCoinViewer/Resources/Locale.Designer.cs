@@ -70,6 +70,42 @@ namespace CryptoCoinViewer.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string CandleClose {
+            get {
+                return ResourceManager.GetString("CandleClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High.
+        /// </summary>
+        public static string CandleHigh {
+            get {
+                return ResourceManager.GetString("CandleHigh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low.
+        /// </summary>
+        public static string CandleLow {
+            get {
+                return ResourceManager.GetString("CandleLow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string CandleOpen {
+            get {
+                return ResourceManager.GetString("CandleOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change.
         /// </summary>
         public static string Change {
@@ -102,6 +138,15 @@ namespace CryptoCoinViewer.Resources {
         public static string DarkTheme {
             get {
                 return ResourceManager.GetString("DarkTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to day.
+        /// </summary>
+        public static string Day {
+            get {
+                return ResourceManager.GetString("Day", resourceCulture);
             }
         }
         
@@ -187,6 +232,15 @@ namespace CryptoCoinViewer.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to month.
+        /// </summary>
+        public static string Month {
+            get {
+                return ResourceManager.GetString("Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pair.
         /// </summary>
         public static string Pair {
@@ -250,6 +304,15 @@ namespace CryptoCoinViewer.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 6 months.
+        /// </summary>
+        public static string SixMonths {
+            get {
+                return ResourceManager.GetString("SixMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Supply.
         /// </summary>
         public static string Supply {
@@ -273,6 +336,24 @@ namespace CryptoCoinViewer.Resources {
         public static string Theme {
             get {
                 return ResourceManager.GetString("Theme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3 months.
+        /// </summary>
+        public static string ThreeMonths {
+            get {
+                return ResourceManager.GetString("ThreeMonths", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2 weeks.
+        /// </summary>
+        public static string TwoWeeks {
+            get {
+                return ResourceManager.GetString("TwoWeeks", resourceCulture);
             }
         }
         
@@ -309,6 +390,24 @@ namespace CryptoCoinViewer.Resources {
         public static string VWAPFullName {
             get {
                 return ResourceManager.GetString("VWAPFullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to week.
+        /// </summary>
+        public static string Week {
+            get {
+                return ResourceManager.GetString("Week", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to year.
+        /// </summary>
+        public static string Year {
+            get {
+                return ResourceManager.GetString("Year", resourceCulture);
             }
         }
     }

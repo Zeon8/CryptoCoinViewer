@@ -201,4 +201,37 @@
   <data name="Theme" xml:space="preserve">
     <value>Тема</value>
   </data>
+  <data name="Day" xml:space="preserve">
+    <value>день</value>
+  </data>
+  <data name="Week" xml:space="preserve">
+    <value>тиждень</value>
+  </data>
+  <data name="TwoWeeks" xml:space="preserve">
+    <value>2 тижні</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>місяць</value>
+  </data>
+  <data name="ThreeMonths" xml:space="preserve">
+    <value>3 місяці</value>
+  </data>
+  <data name="SixMonths" xml:space="preserve">
+    <value>6 місяців</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>рік</value>
+  </data>
+  <data name="CandleOpen">
+    <value>Відкриття</value>
+  </data>
+  <data name="CandleHigh" xml:space="preserve">
+    <value>Максимум</value>
+  </data>
+  <data name="CandleLow" xml:space="preserve">
+    <value>Мінімум</value>
+  </data>
+  <data name="CandleClose" xml:space="preserve">
+    <value>Закриття</value>
+  </data>
 </root>
