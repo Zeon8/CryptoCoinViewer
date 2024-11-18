@@ -24,10 +24,11 @@ namespace CryptoCoinViewer.Services
             return File.WriteAllTextAsync(path, JsonSerializer.Serialize(settings));
         }
 
-        public Settings GetDefaultSettings()
+        public Settings GetDefaultSettings() => new Settings
         {
-            return new Settings(CultureInfo.CurrentUICulture.Name, ApplicationTheme.System);
-        }
+            LanguageCode = CultureInfo.CurrentUICulture.Name,
+            Theme = ApplicationTheme.System
+        };
 
         private string GetPath()
         {

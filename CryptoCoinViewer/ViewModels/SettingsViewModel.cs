@@ -48,7 +48,11 @@ namespace CryptoCoinViewer.ViewModels
         [RelayCommand]
         private async Task SaveSettings()
         {
-            var settings = new Settings(SelectedLanguage!.Code, SelectedTheme!.Theme);
+            var settings = new Settings()
+            {
+                LanguageCode = SelectedLanguage!.Code,
+                Theme = SelectedTheme!.Theme,
+            };
             _settingsApplier.ApplySettings(settings);
             await _settingsService.Save(settings);
             await _dialogService.ShowSavedSettingsMessage();
