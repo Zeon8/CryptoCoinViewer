@@ -15,20 +15,25 @@ public partial class HomeViewModel : ViewModelBase
     public string? SearchCurrencyName { get; set; }
 
     [ObservableProperty]
-    private IEnumerable<AssetItem> _assetItems;
+    private IEnumerable<AssetItem>? _assetItems;
 
     [ObservableProperty]
     private AssetItem? _selectedAssetItem;
 
+
     private readonly CryptoAssetsService _assetsService;
     private readonly ChartService _chartService;
+    
     private readonly INavigationService _navigationService;
+    private readonly DialogService _dialogService;
 
-    public HomeViewModel(CryptoAssetsService assetsService, INavigationService navigationService, ChartService chartService)
+    public HomeViewModel(CryptoAssetsService assetsService, INavigationService navigationService,
+        ChartService chartService, DialogService dialogService)
     {
         _assetsService = assetsService;
         _navigationService = navigationService;
         _chartService = chartService;
+        this._dialogService = dialogService;
     }
 
     public async Task Load()
@@ -49,7 +54,8 @@ public partial class HomeViewModel : ViewModelBase
         if (SelectedAssetItem is null)
             return Task.CompletedTask;
 
-        var viewModel = new CurrencyDetailsViewModel(SelectedAssetItem, _assetsService, _chartService);
+        var viewModel = new CurrencyDetailsViewModel(SelectedAssetItem, _assetsService, 
+            _chartService, _dialogService);
         _navigationService.Navigate(typeof(CurrencyDetailsView), viewModel);
         return viewModel.Load();
     }

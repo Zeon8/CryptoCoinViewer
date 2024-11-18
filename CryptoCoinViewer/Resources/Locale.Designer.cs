@@ -178,6 +178,24 @@ namespace CryptoCoinViewer.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No chart for this currency or too many requests. Try later..
+        /// </summary>
+        public static string FailedLoadChartMessage {
+            get {
+                return ResourceManager.GetString("FailedLoadChartMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to load chart..
+        /// </summary>
+        public static string FailedLoadChartTitle {
+            get {
+                return ResourceManager.GetString("FailedLoadChartTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to High contrast.
         /// </summary>
         public static string HightConstrastTheme {

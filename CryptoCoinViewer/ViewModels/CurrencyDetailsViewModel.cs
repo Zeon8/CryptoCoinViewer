@@ -15,14 +15,17 @@ public partial class CurrencyDetailsViewModel : ViewModelBase
     [ObservableProperty]
     private IEnumerable<Market>? _markets;
 
+    private readonly DialogService _dialogService;
     private readonly CryptoAssetsService _cryptoAssetsService;
     private readonly ChartService _chartService;
 
-    public CurrencyDetailsViewModel(AssetItem assetViewMovel, CryptoAssetsService cryptoAssetsService, ChartService chartService)
+    public CurrencyDetailsViewModel(AssetItem assetViewMovel, CryptoAssetsService cryptoAssetsService,
+        ChartService chartService, DialogService dialogService)
     {
         AssetItem = assetViewMovel;
         _cryptoAssetsService = cryptoAssetsService;
         _chartService = chartService;
+        _dialogService = dialogService;
     }
 
     public async Task Load()
@@ -38,5 +41,7 @@ public partial class CurrencyDetailsViewModel : ViewModelBase
         IEnumerable<CandleStick>? candleSticks = await _chartService.GetCandleSticks(AssetItem.Asset.Id, days);
         if (candleSticks is not null)
             await Application.Current.Dispatcher.InvokeAsync(() => ChartViewModel.Update(candleSticks));
+        else
+            _dialogService.ShowFailedLoadChartMessage();
     }
 }

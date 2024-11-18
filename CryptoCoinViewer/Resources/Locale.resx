@@ -234,4 +234,10 @@
   <data name="CandleClose" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="FailedLoadChartTitle" xml:space="preserve">
+    <value>Failed to load chart.</value>
+  </data>
+  <data name="FailedLoadChartMessage" xml:space="preserve">
+    <value>No chart for this currency or too many requests. Try later.</value>
+  </data>
 </root>

@@ -222,7 +222,7 @@
   <data name="Year" xml:space="preserve">
     <value>рік</value>
   </data>
-  <data name="CandleOpen">
+  <data name="CandleOpen" xml:space="preserve">
     <value>Відкриття</value>
   </data>
   <data name="CandleHigh" xml:space="preserve">
@@ -233,5 +233,11 @@
   </data>
   <data name="CandleClose" xml:space="preserve">
     <value>Закриття</value>
+  </data>
+  <data name="FailedLoadChartTitle" xml:space="preserve">
+    <value>Невдалось завантажити графік.</value>
+  </data>
+  <data name="FailedLoadChartMessage" xml:space="preserve">
+    <value>Немає графіку для цієї валюти або здійснено забагато спроб. Спробуйте пізніше.</value>
   </data>
 </root>

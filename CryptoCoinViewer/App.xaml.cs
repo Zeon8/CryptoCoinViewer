@@ -20,6 +20,7 @@ public partial class App : Application
 
         builder.Services.AddSingleton<INavigationService, NavigationService>();
         builder.Services.AddSingleton<IThemeService, Wpf.Ui.ThemeService>();
+        builder.Services.AddSingleton<ISnackbarService, SnackbarService>();
 
         builder.Services.AddSingleton<CryptoAssetsService>();
         builder.Services.AddSingleton<ChartService>();
@@ -45,8 +46,6 @@ public partial class App : Application
 
         host.Services.GetRequiredService<MainWindow>().Show();
         base.OnStartup(e);
-
-
     }
 
     private void LoadSettings(IHost host)

@@ -29,6 +29,11 @@
                 <ui:NavigationViewItem Content="{x:Static resources:Locale.Settings}"
                     Icon="{ui:SymbolIcon Symbol=Settings16}" TargetPageType="{x:Type views:SettingsView}"/>
             </ui:NavigationView.FooterMenuItems>
+            <ui:NavigationView.ContentOverlay>
+                <Grid>
+                    <ui:SnackbarPresenter x:Name="SnackbarPresenter" />
+                </Grid>
+            </ui:NavigationView.ContentOverlay>
         </ui:NavigationView>
     </Grid>
     
