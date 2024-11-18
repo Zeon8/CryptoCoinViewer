@@ -8,7 +8,8 @@
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:resources="clr-namespace:CryptoCoinViewer.Resources"
         mc:Ignorable="d"
-        Title="CryptoCoinViewer" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Title="CryptoCoinViewer" MinHeight="600" MinWidth="900" Width="900"
         d:DataContext="{d:DesignInstance viewmodels:MainWindowViewModel, IsDesignTimeCreatable=true}">
         
     <Grid>
