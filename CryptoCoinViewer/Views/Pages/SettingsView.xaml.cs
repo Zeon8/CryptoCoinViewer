@@ -1,7 +1,7 @@
 ﻿using CryptoCoinViewer.ViewModels;
 using System.Windows.Controls;
 
-namespace CryptoCoinViewer.Views
+namespace CryptoCoinViewer.Views.Pages
 {
     /// <summary>
     /// Interaction logic for SettingsView.xaml

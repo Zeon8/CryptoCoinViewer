@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:CryptoCoinViewer.Views"
+        xmlns:pages="clr-namespace:CryptoCoinViewer.Views.Pages"
         xmlns:viewmodels="clr-namespace:CryptoCoinViewer.ViewModels"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:resources="clr-namespace:CryptoCoinViewer.Resources"
@@ -17,17 +17,17 @@
                            TitleBar="{Binding ElementName=TitleBar}">
             <ui:NavigationView.MenuItems>
                 <ui:NavigationViewItem Icon="{ui:SymbolIcon Home16}" Content="{x:Static resources:Locale.Home}" 
-                                       TargetPageType="{x:Type views:HomeView}" />
+                                       TargetPageType="{x:Type pages:HomeView}" />
                 <ui:NavigationViewItem Icon="{ui:SymbolIcon Symbol=ArrowRepeatAll16}" 
                                        Content="{x:Static resources:Locale.CurrencyConverter}" 
-                                       TargetPageType="{x:Type views:ConverterView}"/>
+                                       TargetPageType="{x:Type pages:ConverterView}"/>
                 
-                <ui:NavigationViewItem TargetPageType="{x:Type views:CurrencyDetailsView}"
+                <ui:NavigationViewItem TargetPageType="{x:Type pages:CurrencyDetailsView}"
                                                       Visibility="Collapsed"/> 
             </ui:NavigationView.MenuItems>
             <ui:NavigationView.FooterMenuItems>
                 <ui:NavigationViewItem Content="{x:Static resources:Locale.Settings}"
-                    Icon="{ui:SymbolIcon Symbol=Settings16}" TargetPageType="{x:Type views:SettingsView}"/>
+                    Icon="{ui:SymbolIcon Symbol=Settings16}" TargetPageType="{x:Type pages:SettingsView}"/>
             </ui:NavigationView.FooterMenuItems>
             <ui:NavigationView.ContentOverlay>
                 <Grid>

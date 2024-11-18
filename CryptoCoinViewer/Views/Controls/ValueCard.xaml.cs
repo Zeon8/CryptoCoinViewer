@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Controls;
 
-namespace CryptoCoinViewer.Views;
+namespace CryptoCoinViewer.Views.Controls;
 
 public partial class ValueCard : UserControl
 {

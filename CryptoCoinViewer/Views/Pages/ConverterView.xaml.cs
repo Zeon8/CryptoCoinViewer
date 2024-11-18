@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Wpf.Ui.Controls;
 
-namespace CryptoCoinViewer.Views
+namespace CryptoCoinViewer.Views.Pages
 {
     /// <summary>
     /// Interaction logic for ConverterView.xaml

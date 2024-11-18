@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using CryptoCoinViewer.ViewModels;
 
-namespace CryptoCoinViewer.Views
+namespace CryptoCoinViewer.Views.Controls
 {
     /// <summary>
     /// Interaction logic for CurrencyComboBox.xaml

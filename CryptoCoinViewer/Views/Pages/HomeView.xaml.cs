@@ -3,7 +3,7 @@ using System.Windows.Input;
 using CryptoCoinViewer.ViewModels;
 using Wpf.Ui.Controls;
 
-namespace CryptoCoinViewer.Views;
+namespace CryptoCoinViewer.Views.Pages;
 
 public partial class HomeView : UserControl
 {

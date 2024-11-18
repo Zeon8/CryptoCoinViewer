@@ -1,5 +1,5 @@
 ﻿using CryptoCoinViewer.ViewModels;
-using CryptoCoinViewer.Views;
+using CryptoCoinViewer.Views.Pages;
 using Wpf.Ui;
 using Wpf.Ui.Controls;
 

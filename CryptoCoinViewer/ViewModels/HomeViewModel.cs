@@ -5,7 +5,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CryptoCoinViewer.Models;
 using CryptoCoinViewer.Services;
-using CryptoCoinViewer.Views;
+using CryptoCoinViewer.Views.Pages;
 using Wpf.Ui;
 
 namespace CryptoCoinViewer.ViewModels;

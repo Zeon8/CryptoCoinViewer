@@ -1,7 +1,7 @@
 using System.Windows.Controls;
 using CryptoCoinViewer.ViewModels;
 
-namespace CryptoCoinViewer.Views;
+namespace CryptoCoinViewer.Views.Pages;
 
 public partial class CurrencyDetailsView : UserControl
 {

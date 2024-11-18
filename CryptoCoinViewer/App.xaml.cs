@@ -2,7 +2,7 @@
 using System.Windows;
 using CryptoCoinViewer.Services;
 using CryptoCoinViewer.ViewModels;
-using CryptoCoinViewer.Views;
+using CryptoCoinViewer.Views.Pages;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Wpf.Ui;
